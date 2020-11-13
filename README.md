@@ -7,6 +7,8 @@
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 # AWS hosting (DNS, SSL) + Load Balancer
+- AWS의 도메인과 SSL은 Route53과 Certificate Manager을 통해 할 수 있다. 
+- SSL 적용은 AWS에서 CloudFront와 Load Blancer를 통해 적용 할 수 있다. 
 ## DNS 
 ## Route53 + Certificate Manager
 ## Load Balancer
