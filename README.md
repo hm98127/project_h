@@ -8,14 +8,29 @@
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 # AWS hosting (DNS, SSL) + Load Balancer
 - AWS의 도메인과 SSL은 Route53과 Certificate Manager을 통해 할 수 있다. 
-- SSL 적용은 AWS에서 CloudFront와 Load Blancer를 통해 적용 할 수 있다. 
+- SSL 적용은 AWS에서 CloudFront와 Load Balancer를 통해 적용 할 수 있다. 
+
 ## DNS 
+- 호스팅케이알을 통해 구입하여 도메인 세팅을 하였음 
+- https://hessdalen.xyz
+
 ## Route53 + Certificate Manager
+<img width="1283" alt="스크린샷 2020-11-13 오후 7 53 26" src="https://user-images.githubusercontent.com/43293666/99083113-6b7ed480-2608-11eb-89e7-d3d1b113573b.png">
+
+- Route53의 호스팅 영역 들어가서 도메인 세팅
+
 ## Load Balancer
+
+
+<img width="1283" alt="스크린샷 2020-11-13 오후 7 55 34" src="https://user-images.githubusercontent.com/43293666/99083308-b698e780-2608-11eb-9386-b097e9c8694f.png">
+
+- 마지막으로 Load Balancer에 대한 모니터링을 하여 트래픽 패턴을 분석하고 대상의 문제를 해결
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 # AWS_cli (AWS configue), Terraform, Docker (docker-compose) Install
-
+- AWS_cli를 통해 AWS서비스와 상호작용하기 위함 ( 즉 콘솔로 통해 IaaS AWS 관리 및 엑세스 )
+[aws-cli.pdf](https://github.com/hm98127/project_h/files/5537428/aws-cli.pdf) 참고
+- 
 ## Install
 1. docker install
 2. aws-cli install
