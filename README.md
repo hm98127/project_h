@@ -70,9 +70,15 @@
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 # Test, Issue Trouble shooting
 ## Issue 1 Jenkis
+#### Trouble
 - jenkins의 용량이 너무 비대해짐에 따른 문제 
 - 나중에 job이 많아 지고, job 마다 설정이 달라지며, 써야하는 Tool들의 버전까지 달라지는 상황이 나옴 
-### 해결법
+#### Shooting
 - jenkins worker(slave) 사용 (가장 대중적인 방법은 Jenkins 의 Worker(slave)를 ECS, Fargate, Codebuild 등을 통해서 구현, AWS아닐 경우 k8s 같은 것도 가능 - [Project Z](https://github.com/hm98127/project_z) 에서 구현 예정)
 - 매 Job 이 실행될때마다 내가 지정한 Docker image 로 (node, pod 등 아무거나) 새로운 환경으로 작업을 실행하는 것
 ## Issue 2
+#### Trouble
+#### Shooting
+## Issue 3
+#### Trouble
+#### Shooting
