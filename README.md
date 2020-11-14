@@ -53,15 +53,25 @@
 # Jenkins Setting + Github 
 - 소프트웨어 개발 시 지속적으로 통합 서비스를 위해 사용
 - 다수의 개발자들이 하나의 프로그램을 개발할 때 버전 충돌을 방지하기 위해 각자 작업한 내용을 공유영역(ex.Git)에 있는 저장소에 빈번히 업로드함으로써 지속적 통합이 가능
-## jenkins docker setting
-## jenkins github integration
 
+## jenkins docker setting
+[jenkins-test-deploy-success](https://user-images.githubusercontent.com/43293666/99147272-f45a4680-26c2-11eb-84a2-4dcdc2e4a7ca.png)
+- 설치후 배포 test 진행
+## jenkins github integration
+![jenkins-github-connect](https://user-images.githubusercontent.com/43293666/99147280-0e942480-26c3-11eb-8092-7af2c8fe170f.png)
+- git과 연동하여 자동화 배포 test 진행
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 # Nginx + Tomcat + MariaDB
+- apache와 tomcat 조합은 다양하고 효율적으로 연동이 되자만 nginx를 쓰는 이유는 세가지 이유에서이다.
+- 첫째 비동기 Event-Driven 구조 (아파치와 달리 코어당 프로세스처리식이 아니라 Event Handier를 통해 비동기 방식으로 처리해 먼저 처리되는 것부터 로직이 진해됨)
+- 적은 리소스로 빠르게 동작 (운영측면에서는 나중에 클라이언트가 많아질 경우 쓰레드, 메모리 유지보수가 힘듬. 무엇보다 nginx 구성이 단순하다는 점)
+- 인프라스트럭처의 여러 수준에서 부하를 분산할 수 있어 유용 (upstream 블록과 가중치 지정 등등)  
 ## docker network setting 
-## Nginx, Tomcat and MariaDB Install
+sudo docker network create --driver=bridge --subnet=172.--.0.0/16 --ip-range=172.--.5.0/24 --gateway=172.--.5.254 project-h-proxy
+- 외부 침입자가 공격하기 위해서는 사설망의 내부 사설 IP주소를 알아야 하기 때문에 공격이 불가능해지므로 내부 네트워크를 보호함을 위해 생성
 ## Nginx proxy setting
+<img width="827" alt="스크린샷 2020-11-14 오후 10 45 57" src="https://user-images.githubusercontent.com/43293666/99148473-2cfe1e00-26cb-11eb-90c5-284bdc5e21cd.png">
 ## Tomcat + MariaDB
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
