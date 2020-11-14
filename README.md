@@ -98,6 +98,10 @@
 3. /META_INF/context.xml (특정 호스트)
 
 4. $CATALINA_HOME/conf/[enginename]/[hostname]/context.xml.default (위와 마찬가지)
+
+![image](https://user-images.githubusercontent.com/43293666/99150579-f7603180-26d8-11eb-8873-acf29bd72777.png)
+
+- img upload test
  
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 # Docker Monitering (Data Dog)
@@ -108,16 +112,19 @@
 ![스크린샷 2020-11-14 오후 11 56 48](https://user-images.githubusercontent.com/43293666/99150067-5754d900-26d5-11eb-87ef-8e658a0dc2c6.png)
 ![스크린샷 2020-11-14 오후 11 57 09](https://user-images.githubusercontent.com/43293666/99150087-781d2e80-26d5-11eb-8ce7-8d4522170454.png)
 ![스크린샷 2020-11-14 오후 11 58 13](https://user-images.githubusercontent.com/43293666/99150092-7ce1e280-26d5-11eb-971f-1b6e87896330.png)
+
+- CPU/메모리 사용량, 컨테이너에 떠 있는 프로세스, 네트워크 트래픽 사용량, 파일시스템 사용량등의 정보를 확인
+
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 # Test, Issue Trouble shooting
-## Issue 1 Jenkis
+## Issue 1 - Jenkis volume
 #### Trouble
 - jenkins의 용량이 너무 비대해짐에 따른 문제 
 - 나중에 job이 많아 지고, job 마다 설정이 달라지며, 써야하는 Tool들의 버전까지 달라지는 상황이 나옴 
 #### Shooting
 - jenkins worker(slave) 사용 (가장 대중적인 방법은 Jenkins 의 Worker(slave)를 ECS, Fargate, Codebuild 등을 통해서 구현, AWS아닐 경우 k8s 같은 것도 가능 - [Project Z](https://github.com/hm98127/project_z) 에서 구현 예정)
 - 매 Job 이 실행될때마다 내가 지정한 Docker image 로 (node, pod 등 아무거나) 새로운 환경으로 작업을 실행하는 것
-## Issue 2
+## Issue 2 - 
 #### Trouble
 #### Shooting
 ## Issue 3
