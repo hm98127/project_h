@@ -110,7 +110,7 @@
 - Datadog 모니터링 실행 항목 확인 
 
 ![스크린샷 2020-11-14 오후 11 56 48](https://user-images.githubusercontent.com/43293666/99150067-5754d900-26d5-11eb-87ef-8e658a0dc2c6.png)
-![스크린샷 2020-11-14 오후 11 57 09](https://user-images.githubusercontent.com/43293666/99150087-781d2e80-26d5-11eb-8ce7-8d4522170454.png)
+
 ![스크린샷 2020-11-14 오후 11 58 13](https://user-images.githubusercontent.com/43293666/99150092-7ce1e280-26d5-11eb-971f-1b6e87896330.png)
 
 - CPU/메모리 사용량, 컨테이너에 떠 있는 프로세스, 네트워크 트래픽 사용량, 파일시스템 사용량등의 정보를 확인
@@ -124,9 +124,19 @@
 #### Shooting
 - jenkins worker(slave) 사용 (가장 대중적인 방법은 Jenkins 의 Worker(slave)를 ECS, Fargate, Codebuild 등을 통해서 구현, AWS아닐 경우 k8s 같은 것도 가능 - [Project Z](https://github.com/hm98127/project_z) 에서 구현 예정)
 - 매 Job 이 실행될때마다 내가 지정한 Docker image 로 (node, pod 등 아무거나) 새로운 환경으로 작업을 실행하는 것
-## Issue 2 - 
+  
+## Issue 2 - AWS c
 #### Trouble
+- 
 #### Shooting
+
 ## Issue 3
 #### Trouble
 #### Shooting
+
+## Issue 4 - Cloud Container
+#### Trouble
+- 클라우드에서도 온프레미스에서 하듯이 docker 설치에 Container들을 일일히 만들어야 되는 문제
+#### Shooting
+![스크린샷 2020-11-15 오전 12 51 56](https://user-images.githubusercontent.com/43293666/99151201-c5e96500-26dc-11eb-999c-7148ea95997d.png)
+- aws ECS를 사용하면 말도안되게 바로 구축가능 (AMI와 같이쓴다면.)
