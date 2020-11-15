@@ -125,8 +125,16 @@
   
 ## Issue 2 - AWS c
 #### Trouble
-- 
+<img width="1295" alt="스크린샷 2020-11-09 오후 4 50 33" src="https://user-images.githubusercontent.com/43293666/99178679-e6ef9b80-2758-11eb-81b7-6d41b9474305.png">
+
+- nginx로 reverse proxy 를 사용할 때, 용량이 큰 파일을 업로드하면 413 Request Entity Too Large 라는 메시지를 볼 수 있는 문제  
+
 #### Shooting
+- client_max_body_size 설정 때문이고, 너무 큰 사이즈의 request를 보내지 못 하도록 제한을 걸 수 있다. 기본값은 1MB이다. request의 Content-Length 헤더값이 여기 설정된 값을 넘을 수 없다. POST나 PUT 등의 request 사이즈 제한을 할 수도 있지만, 보통 악의적으로 큰 용량의 파일을 업로드해서 디스크를 가득 채우는 경우를 방지하는데 사용
+<div class="colorscripter-code" style="color:#010101;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;background-color:#fafafa;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #e5e5e5"><div style="margin:0;padding:0;word-break:normal;text-align:right;color:#666;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div><div style="line-height:130%">2</div><div style="line-height:130%">3</div><div style="line-height:130%">4</div><div style="line-height:130%">5</div><div style="line-height:130%">6</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#010101;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%">http&nbsp;{</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;client_max_body_size&nbsp;5M;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;...</div><div style="padding:0 6px; white-space:pre; line-height:130%">}</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div></div></td><td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank" style="text-decoration:none;color:white"><span style="font-size:9px;word-break:normal;background-color:#e5e5e5;color:white;border-radius:10px;padding:1px">cs</span></a></td></tr></table></div>
+
+- nginx.conf 파일에서 http, server, location에 설정이 가능
+- 즉 client_max_body_size 값을 늘려주면 해결
 
 ## Issue 3
 #### Trouble
