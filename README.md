@@ -61,7 +61,7 @@
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 # Nginx + Tomcat + MariaDB
-- apache와 tomcat 조합은 다양하고 효율적으로 연동이 되자만 nginx를 쓰는 이유는 세가지 이유에서이다.
+- apache와 tomcat 조합은 다양하고 효율적으로 연동이 되지만 nginx를 쓰는 이유는 세가지 이유에서이다.
 - 첫째 비동기 Event-Driven 구조 (아파치와 달리 코어당 프로세스처리식이 아니라 Event Handier를 통해 비동기 방식으로 처리해 먼저 처리되는 것부터 로직이 진해됨)
 - 둘째 적은 리소스로 빠르게 동작 (운영측면에서는 나중에 클라이언트가 많아질 경우 쓰레드, 메모리 유지보수가 힘듬. 무엇보다 nginx 구성이 단순하다는 점)
 - 마지막으로 인프라스트럭처의 여러 수준에서 부하를 분산할 수 있어 유용 (upstream 블록과 가중치 지정 등등)
@@ -97,9 +97,12 @@
 
 4. $CATALINA_HOME/conf/[enginename]/[hostname]/context.xml.default (위와 마찬가지)
 
+
+<img width="824" alt="스크린샷 2020-11-12 오후 11 47 12" src="https://user-images.githubusercontent.com/43293666/99178955-01774400-275c-11eb-8ffa-428ce991b02f.png">
+
 ![image](https://user-images.githubusercontent.com/43293666/99150579-f7603180-26d8-11eb-8873-acf29bd72777.png)
 
-- img upload test
+- img upload test success
  
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 # Docker Monitering (Data Dog)
@@ -115,7 +118,7 @@
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 # Test, Issue Trouble shooting
-## Issue 1 - Jenkis volume
+## Issue 1 - Jenkins capacity is expected to be exceeded
 #### Trouble
 - jenkins의 용량이 너무 비대해짐에 따른 문제 
 - 나중에 job이 많아 지고, job 마다 설정이 달라지며, 써야하는 Tool들의 버전까지 달라지는 상황이 나옴 
@@ -123,11 +126,11 @@
 - jenkins worker(slave) 사용 (가장 대중적인 방법은 Jenkins 의 Worker(slave)를 ECS, Fargate, Codebuild 등을 통해서 구현, AWS아닐 경우 k8s 같은 것도 가능 - [Project Z](https://github.com/hm98127/project_z) 에서 구현 예정)
 - 매 Job 이 실행될때마다 내가 지정한 Docker image 로 (node, pod 등 아무거나) 새로운 환경으로 작업을 실행하는 것
   
-## Issue 2 - AWS c
+## Issue 2 - 413 Request Entity Too Large error
 #### Trouble
 <img width="1295" alt="스크린샷 2020-11-09 오후 4 50 33" src="https://user-images.githubusercontent.com/43293666/99178679-e6ef9b80-2758-11eb-81b7-6d41b9474305.png">
 
-- nginx로 reverse proxy 를 사용할 때, 용량이 큰 파일을 업로드하면 413 Request Entity Too Large 라는 메시지를 볼 수 있는 문제  
+- nginx로 reverse proxy 를 사용할 때, 용량이 큰 파일을 업로드하면 413 Request Entity Too Large 라는 메시지를 볼 수 있는 문제
 
 #### Shooting
 - client_max_body_size 설정 때문이고, 너무 큰 사이즈의 request를 보내지 못 하도록 제한을 걸 수 있다. 기본값은 1MB이다. request의 Content-Length 헤더값이 여기 설정된 값을 넘을 수 없다. POST나 PUT 등의 request 사이즈 제한을 할 수도 있지만, 보통 악의적으로 큰 용량의 파일을 업로드해서 디스크를 가득 채우는 경우를 방지하는데 사용
@@ -136,11 +139,13 @@
 - nginx.conf 파일에서 http, server, location에 설정이 가능
 - 즉 client_max_body_size 값을 늘려주면 해결
 
-## Issue 3
+## Issue 3 - 
 #### Trouble
+![스크린샷 2020-11-08 오전 2 45 42](https://user-images.githubusercontent.com/43293666/99178886-20290b00-275b-11eb-842b-4979603d7daa.png)
+
 #### Shooting
 
-## Issue 4 - Cloud Container
+## Issue 4 - Easily build Cloud Container
 #### Trouble
 - 클라우드에서도 온프레미스에서 하듯이 docker 설치에 Container들을 일일히 만들어야 되는 문제
 #### Shooting
