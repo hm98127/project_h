@@ -143,11 +143,16 @@
 - nginx.conf 파일에서 http, server, location에 설정이 가능
 - 즉 client_max_body_size 값을 늘려주면 해결
 
-## Issue 3 - 
+## Issue 3 - AWS Certificate Manager 검증 지연 발생
 #### Trouble
 ![스크린샷 2020-11-08 오전 2 45 42](https://user-images.githubusercontent.com/43293666/99178886-20290b00-275b-11eb-842b-4979603d7daa.png)
 
+- 발급이 지연 문제가 발생 
+
 #### Shooting
+<img width="1283" alt="스크린샷 2020-11-13 오후 7 53 26" src="https://user-images.githubusercontent.com/43293666/99179344-0e963200-2760-11eb-9a9f-f9f99a91e073.png">
+
+- Certificate Manager에서 발급해준 CNAME 레코드를 작성하고 10 ~ 15분 정도 기다리면 해결
 
 ## Issue 4 - Easily build Cloud Container
 #### Trouble
