@@ -1,5 +1,5 @@
 # Project H 개발 일지  
-#### Plan
+#### Focus
 - Infrastructure shopping mall web using Tomcat and Mariadb on AWS
 - Designed to meet the requirements of the backend
 - Monitoring to operate and improve servers
@@ -44,12 +44,20 @@
 3. terraform install
 4. version
 <img width="803" alt="스크린샷 2020-11-09 오후 12 26 38" src="https://user-images.githubusercontent.com/43293666/98550184-1fb5ed80-22df-11eb-8507-a6536a502480.png">
-- version
+
+- Install Version 
 
 
-## Terraform VPC-Network, S3-bucket 
-<img width="799" alt="스크린샷 2020-11-09 오후 2 26 25" src="https://user-images.githubusercontent.com/43293666/98557618-c7371e00-22e7-11eb-863a-bba01c278bcd.png">
-- aws s3_bucket terraform file
+## Terraform Public VPC, Subneting, S3-bucket 
+- AWS의 Network는 무조건 VPC를 걸치기 때문에 필수적인 설정이라 볼 수 있음. 
+-  VPC -> public Subnet -> Internet Gateway -> Route Table -> association -> rule create -> Loadbalancer 순이라 의존적
+- private subnet일 경우 NatGateway를 만들어줘야 된다.
+- S3_bucket을 통해 개발자들은 손쉽게 객체 파일이나 자원들을 업로드 할 수 있음. (주의점은 생성시 전세계에 유일한 이름이어야 한다.)  
+
+<img width="658" alt="스크린샷 2020-11-15 오후 8 49 12" src="https://user-images.githubusercontent.com/43293666/99184179-778fa100-2784-11eb-8efb-71d4a861c702.png">
+
+- 확장성을 위해 Inner rule을 사용하지 않고 Outer rule을 이용하는 것이 좋은 코드라 할 수 있음
+- terraform plan을 통해 수정사항 확인 및 복구 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 # Jenkins Setting + Github 
@@ -147,7 +155,7 @@
 #### Trouble
 ![스크린샷 2020-11-08 오전 2 45 42](https://user-images.githubusercontent.com/43293666/99178886-20290b00-275b-11eb-842b-4979603d7daa.png)
 
-- 발급이 지연 문제가 발생 
+- 검증 보류 문제가 발생 
 
 #### Shooting
 <img width="1283" alt="스크린샷 2020-11-13 오후 7 53 26" src="https://user-images.githubusercontent.com/43293666/99179344-0e963200-2760-11eb-9a9f-f9f99a91e073.png">
