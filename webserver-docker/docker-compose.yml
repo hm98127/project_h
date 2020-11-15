@@ -1,0 +1,52 @@
+version: '3'
+services:
+  mariadb:
+    image: mariadb:10.3  
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=password#
+    volumes:
+      - /home/ubuntu/project_H/db/lib-mysql:/var/lib/mysql
+    restart: always
+    networks: 
+      project-h-proxy:
+        ipv4_address: 172.30.5.1
+  tomcat:
+      # build:
+      #   context: ./tomcat
+      #   dockerfile: Dockerfile
+    container_name: tomcat
+    image: tomcat:8.5.58
+    volumes: 
+      - /home/ubuntu/project_H/tomcat/ROOT.war:/usr/local/tomcat/webapps/ROOT.war
+    restart: always
+    networks: 
+      project-h-proxy:
+        ipv4_address: 172.30.5.2
+  nginx:
+    container_name: nginx
+    image: nginx:latest
+    links:
+      - "tomcat"
+    volumes:
+      - /home/ubuntu/project_H/nginx/setting-file/:/etc/nginx
+      - /home/nginx:/usr/share/nginx
+    depends_on: 
+    - tomcat 
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: always
+    networks: 
+      project-h-proxy:
+        ipv4_address: 172.30.5.3
+  
+  networks: 
+    project-h-proxy:
+      ipam: 
+        driver: bridge
+        driver_opts: 
+          subnet: 172.30.0.0/16
+          ip_range: 172.30.5.0/24
+          gateway: 172.30.5.254 

@@ -1,6 +1,6 @@
 # Project H 개발 일지  
 #### Focus
-- Infrastructure shopping mall web using Tomcat and Mariadb on AWS
+- Infrastructure shopping mall web using Tomcat and Mariadb on Amazon Web Service
 - Designed to meet the requirements of the backend
 - Monitoring to operate and improve servers
 - Pursue continuous integration and build infrastructure as code
