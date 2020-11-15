@@ -1,5 +1,6 @@
 ### <h1>Project H 개발 일지</h1>  
-
+- Infrastructure shopping mall web using Tomcat and Mariadb on AWS
+- Designed to meet the requirements of the backend
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 # Road Map
 
@@ -7,7 +8,7 @@
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 # AWS hosting (DNS, SSL) + Load Balancer
-- AWS의 도메인과 SSL은 Route53과 Certificate Manager을 통해 할 수 있다. 
+- AWS의 도메인과 SSL은 Route53과 Certificate Manager을 통해 할 수 있다.
 - SSL 적용은 AWS에서 CloudFront와 Load Balancer를 통해 적용 할 수 있다. 
 
 ## DNS 
@@ -98,7 +99,7 @@
 4. $CATALINA_HOME/conf/[enginename]/[hostname]/context.xml.default (위와 마찬가지)
 
 
-<img width="824" alt="스크린샷 2020-11-12 오후 11 47 12" src="https://user-images.githubusercontent.com/43293666/99178955-01774400-275c-11eb-8ffa-428ce991b02f.png">
+<img width="824" alt="스크린샷 2020-11-12 오후 11 47 12" src="https://user-images.githubusercontent.com/43293666/99178999-82ced680-275c-11eb-8529-54bb7f250540.png">
 
 ![image](https://user-images.githubusercontent.com/43293666/99150579-f7603180-26d8-11eb-8873-acf29bd72777.png)
 
